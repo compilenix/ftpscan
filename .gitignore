@@ -1,5 +1,5 @@
-.sh
-.txt
+*.sh
+*.txt
 node_modules
-.html
-.log
+*.html
+*.log
