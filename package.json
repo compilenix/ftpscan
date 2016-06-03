@@ -4,7 +4,7 @@
 	"description": "NodeJS FTP scanner which generates static HTML.",
 	"main": "server.js",
 	"author": "Compilenix <Compilenix@compilenix.org>",
-	"license": "GPLv2",
+	"license": "MIT",
 	"dependencies": {
 		"node-html-encoder": "*"
 	}
