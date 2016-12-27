@@ -1,12 +1,13 @@
 #!/bin/bash
 
 targetPath="$1";
-nodeExecutable=$(which node)
 filePermissionUser="www";
 filePermissionGroup="www";
 filePermissionMode="0777";
 
 mkdir -pv "${targetPath}/archive";
+
+npm install;
 
 while true
 do
@@ -16,7 +17,7 @@ do
     currentDateTimeFormated=$(date +%Y-%m-%d_%H%M.%S);
 
     echo "$currentDateTime";
-    node ftpscan.js;
+    npm start;
 
     mv tmp.html "$targetPath/archive/${currentDateTimeFormated}.html";
     #mv tmp.json "${targetPath}/${currentDateTimeFormated}.json";
@@ -29,3 +30,4 @@ do
 
     cd "$workingDir";
 done
+
