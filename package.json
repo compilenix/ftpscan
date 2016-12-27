@@ -5,8 +5,13 @@
 	"main": "server.js",
 	"author": "Compilenix <Compilenix@compilenix.org>",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://git.compilenix.org/Compilenix/ftpscan.git"
+	},
 	"dependencies": {
-		"node-html-encoder": "*"
+		"node-html-encoder": "*",
+		"netmask": "*"
 	}
 }
 
