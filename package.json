@@ -1,6 +1,6 @@
 {
 	"name": "ftpscan",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "NodeJS FTP scanner which generates static HTML.",
 	"main": "server.js",
 	"author": "Compilenix <Compilenix@compilenix.org>",
