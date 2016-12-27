@@ -5,13 +5,12 @@ let FtpScanner = require("./lib/FtpScanner.js");
 
 let outfile = "tmp.html";
 let countOfParalellJobWorker = 400;
-let ipAddressBlock = new Netmask("151.217.0.0/16");
+let ipAddressBlock = new Netmask("151.217.0.0/16"); // CCC Event IPv4 Subnet
 let ipAddresses = [];
 
 ipAddressBlock.forEach((ip) => {
 	ipAddresses.push(ip);
 });
-// ipAddresses.push("151.217.173.21");
 
 let ftpScanner = new FtpScanner(ipAddresses, outfile, undefined);
 ftpScanner.WriteOutputHeaderHtml("compilenix.org", "ftpscan", "archive");
