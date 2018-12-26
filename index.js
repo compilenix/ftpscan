@@ -8,9 +8,7 @@ let countOfParalellJobWorker = 400
 let ipAddressBlock = new Netmask('151.217.0.0/16') // CCC Event IPv4 Subnet
 let ipAddresses = []
 
-for (const addr of ipAddressBlock) {
-  ipAddressBlock.push(addr)
-}
+ipAddressBlock.forEach(addr => ipAddresses.push(addr))
 
 let ftpScanner = new FtpScanner(ipAddresses, /** outFileHtml */ outfile, /** outFileJson */ undefined)
 ftpScanner.WriteOutputHeaderHtml('compilenix.org', 'ftpscan', 'archive')
