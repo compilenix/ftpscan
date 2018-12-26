@@ -1,17 +1,20 @@
 {
-	"name": "ftpscan",
-	"version": "1.2.0",
-	"description": "NodeJS FTP scanner which generates static HTML.",
-	"main": "server.js",
-	"author": "Compilenix <Compilenix@compilenix.org>",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://git.compilenix.org/Compilenix/ftpscan.git"
-	},
-	"dependencies": {
-		"node-html-encoder": "*",
-		"netmask": "*"
-	}
+  "name": "ftpscan",
+  "version": "1.2.1",
+  "description": "NodeJS FTP scanner which generates static HTML.",
+  "main": "server.js",
+  "author": "Compilenix <Compilenix@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://git.compilenix.org/Compilenix/ftpscan.git"
+  },
+  "dependencies": {
+    "node-html-encoder": "0.0.2",
+    "netmask": "1.0.6"
+  },
+  "devDependencies": {
+    "standart": "6.1.0",
+    "eslint-plugin-standard": "4.0.0"
+  }
 }
-
