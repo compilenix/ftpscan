@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-# echo -n "Target SSH Server: "; read targetSshServer
-# echo -n "Target SSH Server Username: "; read targetSshUsername
-# echo -n "Path on target SSH Server: "; read targetSshPath
+echo -n "Target SSH Server: "; read targetSshServer
+echo -n "Target SSH Server Username: "; read targetSshUsername
+echo -n "Path on target SSH Server: "; read targetSshPath
 
 targetPath="./work"
 
