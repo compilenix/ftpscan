@@ -22,11 +22,12 @@ do
 
   echo "$currentDateTime"
   node index.js $*
+  echo
 
   mv tmp.html "${targetPath}/archive/${currentDateTimeFormated}.html"
-  # mv tmp.json "${targetPath}/archive/${currentDateTimeFormated}.json"
+  mv tmp.json "${targetPath}/archive/${currentDateTimeFormated}.json"
   pushd "$targetPath"
-  # ln -sf "archive/${currentDateTimeFormated}.json" index.json
+  ln -sf "archive/${currentDateTimeFormated}.json" index.json
   ln -sf "archive/${currentDateTimeFormated}.html" index.html
   popd
 
