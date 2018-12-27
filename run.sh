@@ -1,33 +1,34 @@
 #!/bin/bash
+set -e
 
-targetPath="$1";
-filePermissionUser="www";
-filePermissionGroup="www";
-filePermissionMode="0777";
+# echo -n "Target SSH Server: "; read targetSshServer
+# echo -n "Target SSH Server Username: "; read targetSshUsername
+# echo -n "Path on target SSH Server: "; read targetSshPath
 
-mkdir -pv "${targetPath}/archive";
+targetPath="./work"
 
-npm install;
+mkdir -pv "${targetPath}/archive"
+
+. ./enable-nvm.sh
+
+npm ci
 
 while true
 do
-    workingDir=$(pwd);
-    touch tmp.html;
-    currentDateTime=$(date);
-    currentDateTimeFormated=$(date +%Y-%m-%d_%H%M.%S);
+  touch tmp.html
+  touch tmp.json
+  currentDateTime=$(date)
+  currentDateTimeFormated=$(date +%Y-%m-%d_%H%M.%S)
 
-    echo "$currentDateTime";
-    npm start;
+  echo "$currentDateTime"
+  node index.js $*
 
-    mv tmp.html "$targetPath/archive/${currentDateTimeFormated}.html";
-    #mv tmp.json "${targetPath}/${currentDateTimeFormated}.json";
-    cd "$targetPath";
-    #ln -sf "archive/${currentDateTimeFormated}.json" index.json;
-    ln -sf "archive/${currentDateTimeFormated}.html" index.html;
+  mv tmp.html "${targetPath}/archive/${currentDateTimeFormated}.html"
+  # mv tmp.json "${targetPath}/archive/${currentDateTimeFormated}.json"
+  pushd "$targetPath"
+  # ln -sf "archive/${currentDateTimeFormated}.json" index.json
+  ln -sf "archive/${currentDateTimeFormated}.html" index.html
+  popd
 
-    chmod -R "$filePermissionMode" "$targetPath";
-    chown -R "${filePermissionUser}:${filePermissionGroup}" "$targetPath";
-
-    cd "$workingDir";
+  rsync --links --progress --no-p --no-g -r "${targetPath}/index.html" "${targetPath}/index.json" "${targetPath}/archive" "${targetSshUsername}@${targetSshServer}:${targetSshPath}"
 done
-
