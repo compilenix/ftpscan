@@ -1,15 +1,17 @@
 {
-	// Use IntelliSense to find out which attributes exist for node debugging
-	// Use hover for the description of the existing attributes
-	// For further information visit https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Launch Program",
-			"type": "node",
-			"request": "launch",
-			"program": "${workspaceRoot}/index.js",
-			"cwd": "${workspaceRoot}"
-		}
-	]
+  // Use IntelliSense to find out which attributes exist for node debugging
+  // Use hover for the description of the existing attributes
+  // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Program",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.js",
+      "runtimeExecutable": "${workspaceRoot}/debug.sh",
+      "cwd": "${workspaceRoot}",
+      "timeout": 30000
+    }
+  ]
 }
